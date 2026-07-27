@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: auto;
+}
+
+html {
+  background: #050505;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(0, 245, 160, 0.25);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f5a0, #00c2ff);
+  border-radius: 999px;
+}
+
+:focus-visible {
+  outline: 2px solid #00f5a0;
+  outline-offset: 3px;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-strong {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, #00f5a0, #00c2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(90deg, #00f5a0, #00c2ff) 1;
+  }
+
+  .section-padding {
+    @apply px-6 sm:px-10 lg:px-24 py-24 lg:py-32;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs tracking-[0.3em] uppercase text-accent/80;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
